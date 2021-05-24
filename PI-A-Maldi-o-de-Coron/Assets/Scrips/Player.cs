@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     public bool doubleJump;
 
     [SerializeField]
-    public float jumpForce = 20;
+    public float jumpForce = 15;
 
     void Start()
     {
@@ -83,7 +83,6 @@ public class Player : MonoBehaviour
             if (!isJumping)
             {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
-                doubleJump = true;
                 isJumping = true;
             }
             else
@@ -101,6 +100,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject)
         {
+            doubleJump = true;
             isJumping = false;
         }
     }
