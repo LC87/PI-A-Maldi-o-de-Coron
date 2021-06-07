@@ -16,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     void Update()
     {
         float FollowXPosition = Follow.transform.position.x;
-        float FollowYPosition = Follow.transform.position.y;
+        float FollowYPosition = Follow.transform.position.y + 2;
         transform.position = new Vector3(FollowXPosition, FollowYPosition, -10);
     }
 }
