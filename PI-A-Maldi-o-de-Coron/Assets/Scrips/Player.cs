@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     public bool doubleJump;
 
     [SerializeField]
+    public bool wallJump;
+
+    [SerializeField]
     public float jumpForce = 15;
 
     void Start()
@@ -85,6 +88,21 @@ public class Player : MonoBehaviour
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
             }
+            else if (wallJump && isJumping)
+            {
+                if (direction == 0)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(5f, jumpForce), ForceMode2D.Impulse);
+                    isJumping = true;
+                    wallJump = false;
+                }
+                else if (direction == 1)
+                {
+                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-5f, jumpForce), ForceMode2D.Impulse);
+                    isJumping = true;
+                    wallJump = false;
+                }
+            }
             else
             {
                 if (doubleJump)
@@ -102,6 +120,7 @@ public class Player : MonoBehaviour
         {
             doubleJump = true;
             isJumping = false;
+            wallJump = true;
         }
     }
     void OnCollisionExit2D(Collision2D collision)

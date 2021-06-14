@@ -2,23 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class HuEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
     int hp = 100;
 
     [SerializeField]
-    float movSpd = -0.02f;
+    float movSpd = -2;
 
     [SerializeField]
     int canJump = 1;
 
     [SerializeField]
-    public float jumpForce = 20;
+    public float jumpForce = 10;
 
     [SerializeField]
     public bool isJumping;
+
+    [SerializeField]
+    float InitPos;
 
     [SerializeField]
     GameObject Player;
@@ -27,15 +30,22 @@ public class Enemy : MonoBehaviour
     {
         StartCoroutine(EnemyRegen());
         StartCoroutine(EnemyJump());
+
+        InitPos = transform.position.x;
     }
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(movSpd, 0, 0);
         GetComponent<SpriteRenderer>().color = Color.HSVToRGB(0.78f, hp / 100f, 1);
         float PlayerXPosition = Player.transform.position.x;
 
-        if (transform.position.x <= -14 || transform.position.x >= 14)
+        transform.position += new Vector3(movSpd * Time.deltaTime, 0, 0);
+        
+        if (transform.position.x <= InitPos-7 && movSpd < 0)
+        {
+            movSpd = movSpd * -1;
+        }
+        if (transform.position.x >= InitPos + 7 && movSpd > 0)
         {
             movSpd = movSpd * -1;
         }
@@ -74,7 +84,7 @@ public class Enemy : MonoBehaviour
             while (true)
             {
                 yield return new WaitForSeconds(6f);
-                hp = hp + 100 / 3;
+                hp = hp + 100 / 4;
             }
         }
     }
