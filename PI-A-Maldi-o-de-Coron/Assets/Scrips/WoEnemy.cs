@@ -9,13 +9,13 @@ public class WoEnemy : MonoBehaviour
     int hp = 50;
 
     [SerializeField]
-    public float jumpForce = 10;
+    float InitPos;
 
     [SerializeField]
-    public bool isJumping;
+    public bool Chase;
 
     [SerializeField]
-    public bool canJump = true;
+    float movSpd = 0;
 
     [SerializeField]
     float dir;
@@ -29,7 +29,6 @@ public class WoEnemy : MonoBehaviour
     void Start()
     {
         StartCoroutine(EnemyRegen());
-        StartCoroutine(Jump());
     }
     // Update is called once per frame
     void Update()
@@ -37,43 +36,43 @@ public class WoEnemy : MonoBehaviour
         GetComponent<SpriteRenderer>().color = Color.HSVToRGB(0.78f, hp / 100f, 1);
         float PlayerXPosition = Player.transform.position.x;
 
+        if (Chase)
+        {
+            transform.position += new Vector3(movSpd * Time.deltaTime, 0, 0);
+        }
         if (transform.position.x > PlayerXPosition)
         {
             transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
-            dir = -1.5f;
+            if (movSpd > -10)
+            {
+                movSpd -= 0.05f;
+            }
         }
         else if (transform.position.x < PlayerXPosition)
         {
             transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
-            dir = 1.5f;
+            if (movSpd < 10)
+            {
+                movSpd += 0.05f;
+            }
         }
 
-        if (canJump == true && isJumping == false)
+        if (transform.position.x - PlayerXPosition > -10f && transform.position.x - PlayerXPosition < 10f)
         {
-            if (transform.position.x - PlayerXPosition > -10f && transform.position.x - PlayerXPosition < 10f)
-            {
-                GetComponent<Rigidbody2D>().AddForce(new Vector2(jumpForce * dir, jumpForce), ForceMode2D.Impulse);
-                isJumping = true;
-                canJump = false;
-            }
+            Chase = true;
         }
 
         if (hp <= 0)
         {
-            canJump = false;
-            StopAllCoroutines();
+            Chase = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Potion Placeholder(Clone)")
+        if (collision.gameObject.CompareTag("Potion"))
         {
             Destroy(collision.gameObject);
             hp = hp - 25;
-        }
-        if (collision.gameObject.name != "Player Placeholder" && collision.gameObject.name != "Potion Placeholder(Clone)")
-        {
-            isJumping = false;
         }
     }
     private IEnumerator EnemyRegen()
@@ -84,17 +83,6 @@ public class WoEnemy : MonoBehaviour
             {
                 yield return new WaitForSeconds(6f);
                 hp = hp + 100 / 4;
-            }
-        }
-    }
-    private IEnumerator Jump()
-    {
-        if (canJump == false)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(3f);
-                canJump = true;
             }
         }
     }

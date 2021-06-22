@@ -13,6 +13,14 @@ public class Potion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Destroy(gameObject, 10f);
+        transform.Rotate(0, 0, -270 * Time.deltaTime);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Potion"))
+        {
+        Destroy(gameObject);
+        }
     }
 }

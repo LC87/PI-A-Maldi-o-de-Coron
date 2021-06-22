@@ -17,6 +17,6 @@ public class CameraFollow : MonoBehaviour
     {
         float FollowXPosition = Follow.transform.position.x;
         float FollowYPosition = Follow.transform.position.y + 2;
-        transform.position = new Vector3(FollowXPosition, FollowYPosition, -10);
+        transform.position = new Vector3(FollowXPosition + 3, FollowYPosition, -10);
     }
 }

@@ -24,46 +24,89 @@ public class Player : MonoBehaviour
     public bool doubleJump;
 
     [SerializeField]
-    public bool wallJump;
+    public float jumpForce = 15;
+     
+     // Menu de Pausa do game
 
     [SerializeField]
-    public float jumpForce = 15;
+    private bool isPaused = false;
+    public GameObject pausePanel;
+    public string cena;
+
 
     void Start()
     {
-
+    // menu de pausa do game
+       Time.timeScale = 1f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Move();
-        Jump();
+        //menu de pausa
+        if (!isPaused)
+        {
+            Move();
+            Jump();
 
-        if (Input.GetAxis("Horizontal") < 0)
-        {
-            transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
-            direction = 0;
-        }
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
-            direction = 1;
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (direction == 1)
+            if (Input.GetAxis("Horizontal") < 0)
             {
-                GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
-                PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(5, 5, 0f), ForceMode2D.Impulse);
+                transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
+                direction = 0;
             }
-            else if (direction == 0)
+            if (Input.GetAxis("Horizontal") > 0)
             {
-                GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
-                PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 5, 0f), ForceMode2D.Impulse);
+                transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
+                direction = 1;
             }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (direction == 1)
+                {
+                    GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
+                    PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(5, 5, 0f), ForceMode2D.Impulse);
+                }
+                else if (direction == 0)
+                {
+                    GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
+                    PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 5, 0f), ForceMode2D.Impulse);
+                }
+            }
+
+            //menu de pausa
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                PauseScreen();
+            }
+
         }
     }
+    //Menu de pausa
+    void PauseScreen()
+    {
+      if (isPaused)
+      {
+        isPaused = false;
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+      }
+      else
+      {
+        isPaused = true;
+        Time.timeScale = 0f;
+        pausePanel.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+      }
+    }
+    /*  //Menu de pausa
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene(cena);
+    }
+    */
     void Move()
     {
         transform.position += new Vector3(Input.GetAxis("Horizontal") * velocidade * Time.deltaTime, 0f);
@@ -88,22 +131,7 @@ public class Player : MonoBehaviour
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
             }
-            else if (wallJump && isJumping)
-            {
-                if (direction == 0)
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(5f, jumpForce), ForceMode2D.Impulse);
-                    isJumping = true;
-                    wallJump = false;
-                }
-                else if (direction == 1)
-                {
-                    GetComponent<Rigidbody2D>().AddForce(new Vector2(-5f, jumpForce), ForceMode2D.Impulse);
-                    isJumping = true;
-                    wallJump = false;
-                }
-            }
-            else
+            else if (isJumping)
             {
                 if (doubleJump)
                 {
@@ -118,9 +146,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject)
         {
-            doubleJump = true;
             isJumping = false;
-            wallJump = true;
         }
     }
     void OnCollisionExit2D(Collision2D collision)
@@ -128,6 +154,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject)
         {
             isJumping = true;
+            doubleJump = true;
         }
     }
 }

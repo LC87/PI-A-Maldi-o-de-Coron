@@ -9,13 +9,13 @@ public class HuEnemy : MonoBehaviour
     int hp = 100;
 
     [SerializeField]
-    float movSpd = -2;
+    float movSpd = -4;
 
     [SerializeField]
     int canJump = 1;
 
     [SerializeField]
-    public float jumpForce = 10;
+    public float jumpForce = 15;
 
     [SerializeField]
     public bool isJumping;
@@ -29,7 +29,6 @@ public class HuEnemy : MonoBehaviour
     void Start()
     {
         StartCoroutine(EnemyRegen());
-        StartCoroutine(EnemyJump());
 
         InitPos = transform.position.x;
     }
@@ -67,12 +66,13 @@ public class HuEnemy : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Potion Placeholder(Clone)")
+        if (collision.gameObject.CompareTag("Potion"))
         {
             Destroy(collision.gameObject);
             hp = hp - 25;
+            isJumping = true;
         }
-        if (collision.gameObject.name != "Player Placeholder" && collision.gameObject.name != "Potion Placeholder(Clone)")
+        else if (!collision.gameObject.CompareTag("Player"))
         {
             isJumping = false;
         }
@@ -86,16 +86,6 @@ public class HuEnemy : MonoBehaviour
                 yield return new WaitForSeconds(6f);
                 hp = hp + 100 / 4;
             }
-        }
-    }
-    private IEnumerator EnemyJump()
-    {
-        while (hp < 0)
-        {
-        yield return new WaitForSeconds(3f);
-        canJump = 0;
-        yield return new WaitForSeconds(3f);
-        canJump = 1;
         }
     }
 }
