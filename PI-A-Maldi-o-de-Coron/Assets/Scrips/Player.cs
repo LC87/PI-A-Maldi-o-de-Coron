@@ -25,7 +25,11 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     public float jumpForce = 15;
-     
+
+    // vida do player
+    [SerializeField]
+     public int hp = 5;
+
      // Menu de Pausa do game
 
     [SerializeField]
@@ -43,6 +47,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // morte do player
+         if (hp <= 0){
+            Destroy (this.gameObject);
+        }
+
         //menu de pausa
         if (!isPaused)
         {
@@ -156,5 +165,15 @@ public class Player : MonoBehaviour
             isJumping = true;
             doubleJump = true;
         }
+    }
+    
+    private void OnCollisionEnter2D(Collider2D collision)
+    {
+
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            hp--;
+        }
+
     }
 }

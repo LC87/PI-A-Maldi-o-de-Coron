@@ -570,6 +570,7 @@ MonoBehaviour:
   isJumping: 0
   doubleJump: 0
   jumpForce: 10
+  hp: 5
   isPaused: 0
   pausePanel: {fileID: 0}
   cena: 
@@ -4737,6 +4738,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7604887772009674073, guid: 47775ff3828b9d14098d09ca37f8db05, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7604887772009674075, guid: 47775ff3828b9d14098d09ca37f8db05, type: 3}
       propertyPath: m_RootOrder
       value: 11
