@@ -157,6 +157,10 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
+         if(collision.gameObject.CompareTag("Enemy"))
+        {
+            hp--;
+        }
     }
     void OnCollisionExit2D(Collision2D collision)
     {
@@ -165,15 +169,7 @@ public class Player : MonoBehaviour
             isJumping = true;
             doubleJump = true;
         }
+        
     }
     
-    private void OnCollisionEnter2D(Collider2D collision)
-    {
-
-        if(collision.gameObject.CompareTag("Enemy"))
-        {
-            hp--;
-        }
-
-    }
 }
