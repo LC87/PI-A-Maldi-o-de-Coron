@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     {
     // menu de pausa do game
        Time.timeScale = 1f;
+    //ovo
     }
 
     // Update is called once per frame
