@@ -172,9 +172,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 370001683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d9989193cf66548ba1c5389405c206, type: 3}
+  m_Script: {fileID: 11500000, guid: ecfc8bf4d265fc84dbb1fa8a664c1b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: 
 --- !u!114 &370001686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -782,9 +783,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1772726941}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49d9989193cf66548ba1c5389405c206, type: 3}
+  m_Script: {fileID: 11500000, guid: ecfc8bf4d265fc84dbb1fa8a664c1b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneName: SampleScene
 --- !u!114 &1772726944
 MonoBehaviour:
   m_ObjectHideFlags: 0
