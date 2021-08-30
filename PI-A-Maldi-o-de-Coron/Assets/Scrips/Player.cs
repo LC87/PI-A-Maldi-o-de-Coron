@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
                 transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
                 direction = 1;
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.G))
             {
                 if (direction == 1)
                 {
@@ -80,6 +80,19 @@ public class Player : MonoBehaviour
                 {
                     GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
                     PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 5, 0f), ForceMode2D.Impulse);
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.H))
+            {
+                if (direction == 1)
+                {
+                    GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
+                    PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(5, 0, 0f), ForceMode2D.Impulse);
+                }
+                else if (direction == 0)
+                {
+                    GameObject PotionInsta = Instantiate(Potion, Ref.transform.position, Potion.transform.rotation);
+                    PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 0, 0f), ForceMode2D.Impulse);
                 }
             }
 

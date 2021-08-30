@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     GameObject Follow;
     void Start()
     {
-
+        Follow = GameObject.Find("Player");
     }
 
     // Update is called once per frame

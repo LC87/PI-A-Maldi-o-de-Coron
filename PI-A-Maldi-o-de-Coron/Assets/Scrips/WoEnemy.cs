@@ -26,45 +26,57 @@ public class WoEnemy : MonoBehaviour
     [SerializeField]
     GameObject Player;
 
+    private Animator animationController;
     void Start()
     {
-        StartCoroutine(EnemyRegen());
+        animationController = GetComponent<Animator>();
+        Player = GameObject.Find("Player");
     }
     // Update is called once per frame
     void Update()
     {
-        GetComponent<SpriteRenderer>().color = Color.HSVToRGB(0.78f, hp / 100f, 1);
-        float PlayerXPosition = Player.transform.position.x;
+        float PlayerX = Player.transform.position.x;
 
         if (Chase)
         {
             transform.position += new Vector3(movSpd * Time.deltaTime, 0, 0);
-        }
-        if (transform.position.x > PlayerXPosition)
-        {
-            transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
-            if (movSpd > -10)
+
+            if (transform.position.x > PlayerX)
             {
-                movSpd -= 0.05f;
+                transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
+                if (movSpd > -10)
+                {
+                    movSpd -= 0.05f;
+                }
             }
-        }
-        else if (transform.position.x < PlayerXPosition)
-        {
-            transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
-            if (movSpd < 10)
+
+            else if (transform.position.x < PlayerX)
             {
-                movSpd += 0.05f;
+                transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
+                if (movSpd < 10)
+                {
+                    movSpd += 0.05f;
+                }
             }
         }
 
-        if (transform.position.x - PlayerXPosition > -10f && transform.position.x - PlayerXPosition < 10f)
+        if (transform.position.x - PlayerX > -10f && transform.position.x - PlayerX < 10f)
         {
             Chase = true;
+            animationController.SetBool("Moving", true);
+        }
+
+        else
+        {
+            animationController.SetBool("Moving", false);
+            Chase = false;
+            movSpd = 0;
         }
 
         if (hp <= 0)
         {
             Chase = false;
+            animationController.SetBool("Cured", true);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -73,17 +85,6 @@ public class WoEnemy : MonoBehaviour
         {
             Destroy(collision.gameObject);
             hp = hp - 25;
-        }
-    }
-    private IEnumerator EnemyRegen()
-    {
-        if (hp < 50)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(6f);
-                hp = hp + 100 / 4;
-            }
         }
     }
 }
