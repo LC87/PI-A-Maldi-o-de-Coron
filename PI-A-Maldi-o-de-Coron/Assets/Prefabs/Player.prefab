@@ -151,7 +151,7 @@ MonoBehaviour:
   direction: 1
   isJumping: 0
   doubleJump: 0
-  jumpForce: 10
+  jumpForce: 8
   hp: 5
   isPaused: 0
   pausePanel: {fileID: 0}
