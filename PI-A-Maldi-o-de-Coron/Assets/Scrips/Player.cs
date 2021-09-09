@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class Player : MonoBehaviour
     // vida do player
     [SerializeField]
      public int hp = 5;
+    
+    [SerializeField]
+    Image h1, h2, h3, h4, h5;
 
      // Menu de Pausa do game
 
@@ -37,9 +41,12 @@ public class Player : MonoBehaviour
     public GameObject pausePanel;
     public string cena;
 
+    private Animator animationController;
 
     void Start()
     {
+        animationController = GetComponent<Animator>();
+
     // menu de pausa do game
        Time.timeScale = 1f;
     //ovo
@@ -49,8 +56,32 @@ public class Player : MonoBehaviour
     void Update()
     {
         // morte do player
-         if (hp <= 0){
+          if (hp <= 0){
             Destroy (this.gameObject);
+        }
+        
+        if(hp == 4){
+           h5.enabled = false;
+        }
+        if(hp == 3){
+           h4.enabled = false;
+        }
+        if(hp == 2){
+           h3.enabled = false;
+        }
+        if(hp == 1){
+           h2.enabled = false;
+        }
+        if(hp <= 0){
+           h1.enabled = false;
+        } 
+
+        if (Input.GetAxis("Horizontal")< 0 || Input.GetAxis("Horizontal")> 0 )
+        {
+            animationController.SetBool("moving", true);
+        }
+        else{
+            animationController.SetBool("moving", false);
         }
 
         //menu de pausa
@@ -138,12 +169,15 @@ public class Player : MonoBehaviour
         {
             transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
             direction = 0;
+            
         }
+       
         if (Input.GetAxis("Horizontal") > 0)
         {
             transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
             direction = 1;
         }
+        
     }
     void Jump()
     {
@@ -174,7 +208,7 @@ public class Player : MonoBehaviour
          if(collision.gameObject.CompareTag("Enemy"))
         {
             hp--;
-        }
+        } 
     }
     void OnCollisionExit2D(Collision2D collision)
     {
