@@ -14,7 +14,7 @@ public class trocaDeCena : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > 110.8f){
+        if (transform.position.x > 138f){
             SceneManager.LoadScene("Fase2-floresta");
         }
     }

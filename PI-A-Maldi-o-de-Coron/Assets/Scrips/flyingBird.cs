@@ -8,12 +8,15 @@ public class flyingBird : MonoBehaviour
     float movSpd;
 
     [SerializeField]
-    int direction = 1;
-
-    [SerializeField]
     GameObject PoderPassaro;
 
     private Animator animationController;
+
+    [SerializeField]
+    float InitPos;
+
+    [SerializeField]
+    GameObject Player;
 
 
     // Start is called before the first frame update
@@ -21,22 +24,25 @@ public class flyingBird : MonoBehaviour
     {
         StartCoroutine (Poder());
         animationController = GetComponent<Animator>();
+        InitPos = transform.position.x;
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-         transform.position += new Vector3(movSpd * Time.deltaTime, 0f, 0f);
-
-        if (transform.position.x <= 15.98)
+        float PlayerXPosition = Player.transform.position.x;
+        transform.position += new Vector3(movSpd * Time.deltaTime, 0, 0);
+        
+        if (transform.position.x <= InitPos-7 && movSpd < 0)
         {
             movSpd = movSpd * -1;
             transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
         }
-        if (transform.position.x >= 39.11)
+        if (transform.position.x >= InitPos + 7 && movSpd > 0)
         {
-             movSpd = movSpd * -1;
-             transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
+            movSpd = movSpd * -1;
+            transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
         }
       
     }

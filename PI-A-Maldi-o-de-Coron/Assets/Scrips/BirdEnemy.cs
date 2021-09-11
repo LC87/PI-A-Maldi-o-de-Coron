@@ -33,10 +33,12 @@ public class BirdEnemy : MonoBehaviour
         if (transform.position.x <= InitPos-7 && movSpd < 0)
         {
             movSpd = movSpd * -1;
+            transform.rotation = new Quaternion(0, 180, 0, transform.rotation.z);
         }
         if (transform.position.x >= InitPos + 7 && movSpd > 0)
         {
             movSpd = movSpd * -1;
+            transform.rotation = new Quaternion(0, 0, 0, transform.rotation.z);
         }
 
         if (hp <= 0)
