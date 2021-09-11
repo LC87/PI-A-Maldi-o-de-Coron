@@ -19,5 +19,8 @@ public class trocaDeCena : MonoBehaviour
         }
     }
 
-
+    public void TrocarCena(string cena)
+    {
+        SceneManager.LoadScene(cena);
+    }
 }

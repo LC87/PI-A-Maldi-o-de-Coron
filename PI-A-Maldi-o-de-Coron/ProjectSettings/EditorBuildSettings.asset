@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: 
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Fase1-vila.unity
@@ -17,4 +17,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Principal.unity
     guid: db1c534d8b7a3c0489801f2cba10000d
+  - enabled: 1
+    path: Assets/Scenes/creditos.unity
+    guid: b68d0dbd4bfefff44a308638c510e06c
+  - enabled: 1
+    path: Assets/Scenes/config.unity
+    guid: 31300dc7783645948a0aa18f1d11f1ca
+  - enabled: 1
+    path: Assets/Scenes/Menu Pausa.unity
+    guid: e55b2484b21261742988bfdb863c4515
   m_configObjects: {}

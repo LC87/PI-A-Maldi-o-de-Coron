@@ -48,7 +48,7 @@ public class BirdEnemy : MonoBehaviour
 
         if (movSpd == 0)
         {
-            animationController.SetBool("Moving", false);
+            animationController.SetBool("moving", false);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

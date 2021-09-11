@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: eb18b390bed66f344a44c89ad6a8201d
+guid: 3f949b5b42c166045acee3d3f2e7b56e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7475974851445736059
-    second: New Piskel-5.png_0
+      213: -4587002237213695279
+    second: "tela de pausa - a maldi\xE7\xE3o de coron-1.png (1)_0"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: New Piskel-5.png_0
+      name: "tela de pausa - a maldi\xE7\xE3o de coron-1.png (1)_0"
       rect:
         serializedVersion: 2
-        x: 135
-        y: 85
-        width: 80
-        height: 80
+        x: 0
+        y: 160
+        width: 1000
+        height: 580
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b724d2a948fffb760800000000000000
-      internalID: 7475974851445736059
+      spriteID: 1d2a4faa4c1b750c0800000000000000
+      internalID: -4587002237213695279
       vertices: []
       indices: 
       edges: []
