@@ -13,6 +13,7 @@ public class PoderPassaro : MonoBehaviour
     void Start()
     {
         SP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        velocidade = -10;
     }
 
     // Update is called once per frame
