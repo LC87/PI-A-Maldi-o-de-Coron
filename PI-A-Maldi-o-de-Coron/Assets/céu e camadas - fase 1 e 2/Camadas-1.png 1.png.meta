@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 5a8bebd6ea8f43c48ba2ff524d84cb19
+guid: bca9a04545be5704f9082f08780d69f6
 TextureImporter:
   internalIDToNameTable:
   - first:
       213: -756297836685232587
     second: Camadas-1.png_0
+  - first:
+      213: -50916093547494844
+    second: Camadas-1.png 1_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -44,7 +47,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -118,12 +121,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Camadas-1.png_0
+      name: Camadas-1.png 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 7500
+        width: 4825
         height: 800
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,8 +135,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536faf3ef171185f0800000000000000
-      internalID: -756297836685232587
+      spriteID: 44240ca251c1b4ff0800000000000000
+      internalID: -50916093547494844
       vertices: []
       indices: 
       edges: []

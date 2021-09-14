@@ -4,7 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class trocaDeCena : MonoBehaviour
-{
+{   
+    [SerializeField]
+    float position;
+
+    [SerializeField]
+    string nomeDaCena;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,8 +19,8 @@ public class trocaDeCena : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > 138f){
-            SceneManager.LoadScene("Fase2-floresta");
+        if (transform.position.x > position){
+            SceneManager.LoadScene(nomeDaCena);
         }
     }
 
