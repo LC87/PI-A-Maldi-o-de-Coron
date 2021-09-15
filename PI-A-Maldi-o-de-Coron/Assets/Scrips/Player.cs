@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     Image h1, h2, h3, h4, h5;
 
+    [SerializeField]
+    Canvas gameOver;
+
      // Menu de Pausa do game
 
     [SerializeField]
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
         // morte do player
           if (hp <= 0){
             Destroy (this.gameObject);
+            gameOver.enabled = true;
         }
         
         if(hp == 4){
