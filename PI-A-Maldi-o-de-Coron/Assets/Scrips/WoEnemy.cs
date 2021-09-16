@@ -77,6 +77,7 @@ public class WoEnemy : MonoBehaviour
         {
             Chase = false;
             animationController.SetBool("Cured", true);
+            gameObject.tag = "Untagged";
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
