@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 542c971110f7bc44f9f99af863cba244
+guid: 1913d6b1fbd9cc646bf3d4ede2971eb3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5334975779396344872
-    second: P3 _0
+      213: 564104595748978367
+    second: "Bot Recome\xE7ar (2)_0"
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: P3 _0
+      name: "Bot Recome\xE7ar (2)_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 4000
-        height: 236
+        x: 45
+        y: 85
+        width: 408
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d3a4c76bcb56f5b0800000000000000
-      internalID: -5334975779396344872
+      spriteID: fbe78cd142a14d700800000000000000
+      internalID: 564104595748978367
       vertices: []
       indices: 
       edges: []

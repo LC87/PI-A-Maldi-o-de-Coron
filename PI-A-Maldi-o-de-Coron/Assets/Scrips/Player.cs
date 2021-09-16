@@ -31,8 +31,16 @@ public class Player : MonoBehaviour
     [SerializeField]
      public int hp = 5;
     
+    // Barra de corações
     [SerializeField]
     Image h1, h2, h3, h4, h5;
+    
+    //Painel de game over
+    [SerializeField]
+    GameObject gameOver;
+    
+    //Se o player está vivo
+    bool isAlive = true;
 
      // Menu de Pausa do game
 
@@ -57,9 +65,12 @@ public class Player : MonoBehaviour
     {
         // morte do player
           if (hp <= 0){
-            Destroy (this.gameObject);
+            //Destroy (this.gameObject);
+            isAlive = false;
+            gameOver.SetActive(true);
+            animationController.SetTrigger("death");
         }
-        
+        //Corações
         if(hp == 4){
            h5.enabled = false;
         }
@@ -75,20 +86,21 @@ public class Player : MonoBehaviour
         if(hp <= 0){
            h1.enabled = false;
         } 
-
-        if (Input.GetAxis("Horizontal")< 0 || Input.GetAxis("Horizontal")> 0 )
-        {
-            animationController.SetBool("moving", true);
-        }
-        else{
-            animationController.SetBool("moving", false);
-        }
-
+        
         //menu de pausa
-        if (!isPaused)
+        if (!isPaused && isAlive == true)
         {
             Move();
             Jump();
+
+            //animações do player
+            if (Input.GetAxis("Horizontal")< 0 || Input.GetAxis("Horizontal")> 0 )
+            {
+                animationController.SetBool("moving", true);
+            }
+            else{
+                animationController.SetBool("moving", false);
+            }
 
             if (Input.GetAxis("Horizontal") < 0)
             {
