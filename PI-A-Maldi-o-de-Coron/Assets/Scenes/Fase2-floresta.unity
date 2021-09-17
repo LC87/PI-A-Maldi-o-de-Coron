@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: 133.8
-  nomeDaCena: Fase3-Coron
+  nomeDaCena: CenaCoronUm
 --- !u!1 &100165201
 GameObject:
   m_ObjectHideFlags: 0
