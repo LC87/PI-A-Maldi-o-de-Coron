@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-Using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -48,7 +48,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private bool isPaused = false;
     public GameObject pausePanel;
-    public string cena;
+    
+    //public string cena;
 
     private Animator animationController;
 
@@ -73,7 +74,6 @@ public class Player : MonoBehaviour
     {
         // morte do player
           if (hp <= 0){
-            //Destroy (this.gameObject);
             isAlive = false;
             gameOver.SetActive(true);
             animationController.SetTrigger("death");
@@ -161,22 +161,24 @@ public class Player : MonoBehaviour
       if (isPaused)
       {
         isPaused = false;
-        Time.timeScale = 1f;
         pausePanel.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
+        //Time.timeScale = 1f;
+        /*Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        */
       }
       else
       {
         isPaused = true;
-        Time.timeScale = 0f;
         pausePanel.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
+        //Time.timeScale = 0f;
+        /*Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        */
       }
     }
     /*  //Menu de pausa
-    public void BackToMenu()
+    public void BackToMenu(string cena)
     {
         SceneManager.LoadScene(cena);
     }

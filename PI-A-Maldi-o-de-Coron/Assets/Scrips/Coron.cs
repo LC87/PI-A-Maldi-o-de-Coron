@@ -13,6 +13,9 @@ public class Coron : MonoBehaviour
     [SerializeField]
     float spd;
 
+    [SerializeField]
+    GameObject win;
+
     private Animator animationController;
 
     // Start is called before the first frame update
@@ -40,6 +43,10 @@ public class Coron : MonoBehaviour
             {
                 spd += 0.05f;
             }
+        }
+
+        if(hp <= 0){
+           win.SetActive(true);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
