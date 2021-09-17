@@ -43,6 +43,7 @@ public class BirdEnemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            gameObject.tag = "Untagged";
             movSpd = 0;
         }
 

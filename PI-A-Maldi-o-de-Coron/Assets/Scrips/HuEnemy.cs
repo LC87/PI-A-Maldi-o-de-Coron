@@ -60,6 +60,7 @@ public class HuEnemy : MonoBehaviour
         {
             movSpd = 0;
             canJump = 0;
+            gameObject.tag = "Untagged";
         }
 
         if (movSpd == 0)
