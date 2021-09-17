@@ -4,5 +4,42 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
   m_Scenes: []
+=======
+  m_Scenes:
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Fase1-vila.unity
+    guid: b23d249a3666a8e44a431fab8b665ff2
+  - enabled: 1
+    path: Assets/Scenes/Fase2-floresta.unity
+    guid: acdb4267a4962b440ab3990c11c30594
+  - enabled: 1
+    path: Assets/Scenes/Fase3-Coron.unity
+    guid: c3ddcf11df753264495c77208d5f0ab8
+  - enabled: 1
+    path: Assets/Scenes/Menu Principal.unity
+    guid: db1c534d8b7a3c0489801f2cba10000d
+  - enabled: 1
+    path: Assets/Scenes/creditos.unity
+    guid: b68d0dbd4bfefff44a308638c510e06c
+  - enabled: 1
+    path: Assets/Scenes/config.unity
+    guid: 31300dc7783645948a0aa18f1d11f1ca
+  - enabled: 1
+    path: Assets/Scenes/Menu Pausa.unity
+    guid: e55b2484b21261742988bfdb863c4515
+  - enabled: 1
+    path: Assets/Scenes/CenaUm.unity
+    guid: 1370d745b3b59a54f9c332e33ae4f997
+  - enabled: 1
+    path: Assets/Scenes/CenaDois.unity
+    guid: 03a058f89ee285c46a55d2013a02cd63
+  - enabled: 1
+    path: Assets/Scenes/CenaTres.unity
+    guid: 2bf06d9aed087154e82c8d63ad2fe7d8
+>>>>>>> 340f769ee5bd634bc9d1f9ca4246eb2d8516f16c
   m_configObjects: {}
