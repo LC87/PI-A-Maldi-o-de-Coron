@@ -4,6 +4,9 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
+<<<<<<< HEAD
+  m_Scenes: []
+=======
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Fase1-vila.unity
@@ -47,4 +50,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CenaCoronDois.unity
     guid: 91a78b6562b1c59458276e13b9ef1228
+>>>>>>> 957f3cbea6ff13b6598bacb32c050025f6b702be
   m_configObjects: {}

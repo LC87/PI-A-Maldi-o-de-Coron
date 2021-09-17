@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+Using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -61,6 +62,13 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
+    
+    //menu de pausa
+        private bool isPaused;
+        [Header("Paineis e Menu")]
+        public GameObject pausePanel;
+        public string cena;
+
     void Update()
     {
         // morte do player
@@ -87,7 +95,7 @@ public class Player : MonoBehaviour
            h1.enabled = false;
         } 
         
-        //menu de pausa
+         //menu de pausa
         if (!isPaused && isAlive == true)
         {
             Move();
@@ -138,7 +146,7 @@ public class Player : MonoBehaviour
                     PotionInsta.GetComponent<Rigidbody2D>().AddForce(new Vector3(-5, 0, 0f), ForceMode2D.Impulse);
                 }
             }
-
+            
             //menu de pausa
             if (Input.GetKeyDown(KeyCode.Escape))
             {
