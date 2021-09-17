@@ -7,7 +7,7 @@ public class PoderCoron : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Invoke("Activate", 0.5f);
     }
 
     // Update is called once per frame
@@ -21,6 +21,10 @@ public class PoderCoron : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+    }
+    void Activate()
+    {
+        GetComponent<BoxCollider2D>().isTrigger = false;
     }
 }
