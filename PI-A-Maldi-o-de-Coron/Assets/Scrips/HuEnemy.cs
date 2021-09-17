@@ -25,19 +25,17 @@ public class HuEnemy : MonoBehaviour
 
     [SerializeField]
     GameObject Player;
-
+    private Animator animationController;
     void Start()
     {
-        StartCoroutine(EnemyRegen());
-
+        animationController = GetComponent<Animator>();
         InitPos = transform.position.x;
+        Player = GameObject.Find("Player");
     }
     // Update is called once per frame
     void Update()
     {
-        GetComponent<SpriteRenderer>().color = Color.HSVToRGB(0.78f, hp / 100f, 1);
         float PlayerXPosition = Player.transform.position.x;
-
         transform.position += new Vector3(movSpd * Time.deltaTime, 0, 0);
         
         if (transform.position.x <= InitPos-7 && movSpd < 0)
@@ -63,6 +61,11 @@ public class HuEnemy : MonoBehaviour
             movSpd = 0;
             canJump = 0;
         }
+
+        if (movSpd == 0)
+        {
+            animationController.SetBool("Moving", false);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -77,16 +80,4 @@ public class HuEnemy : MonoBehaviour
             isJumping = false;
         }
     }
-    private IEnumerator EnemyRegen()
-    {
-        if (hp < 100 && hp > 0)
-        {
-            while (true)
-            {
-                yield return new WaitForSeconds(6f);
-                hp = hp + 100 / 4;
-            }
-        }
-    }
-
 }
