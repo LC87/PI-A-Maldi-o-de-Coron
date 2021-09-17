@@ -4730,6 +4730,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: telaGameOver
       objectReference: {fileID: 0}
+    - target: {fileID: 3973561862197284005, guid: 83f6fcfb7f9d85448b4e35c209aacd3f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3973561862197284006, guid: 83f6fcfb7f9d85448b4e35c209aacd3f, type: 3}
       propertyPath: m_Camera
       value: 
