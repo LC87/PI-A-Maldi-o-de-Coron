@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu Pausa.unity
     guid: e55b2484b21261742988bfdb863c4515
+  - enabled: 1
+    path: Assets/Scenes/CenaUm.unity
+    guid: 1370d745b3b59a54f9c332e33ae4f997
+  - enabled: 1
+    path: Assets/Scenes/CenaDois.unity
+    guid: 03a058f89ee285c46a55d2013a02cd63
+  - enabled: 1
+    path: Assets/Scenes/CenaTres.unity
+    guid: 2bf06d9aed087154e82c8d63ad2fe7d8
   m_configObjects: {}

@@ -217,7 +217,7 @@ public class Player : MonoBehaviour
         {
             isJumping = false;
         }
-         if(collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.tag == "Enemy")
         {
             hp--;
         } 
