@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Fase1-vila.unity
     guid: b23d249a3666a8e44a431fab8b665ff2
@@ -34,8 +31,20 @@ EditorBuildSettings:
     guid: 1370d745b3b59a54f9c332e33ae4f997
   - enabled: 1
     path: Assets/Scenes/CenaDois.unity
-    guid: 03a058f89ee285c46a55d2013a02cd63
+    guid: 4b70ec6f141f92946b30db2f2dfd565a
   - enabled: 1
     path: Assets/Scenes/CenaTres.unity
     guid: 2bf06d9aed087154e82c8d63ad2fe7d8
+  - enabled: 1
+    path: Assets/Scenes/CenaUmFloresta.unity
+    guid: 5f729775713be3741a77cac10c134e07
+  - enabled: 1
+    path: Assets/Scenes/CenaDoisFloresta.unity
+    guid: c640d4d505d95a244b3c84ae06e764e1
+  - enabled: 1
+    path: Assets/Scenes/CenaCoronUm.unity
+    guid: 8e103e1d13cec434b87c9f86aadfc0fe
+  - enabled: 1
+    path: Assets/Scenes/CenaCoronDois.unity
+    guid: 91a78b6562b1c59458276e13b9ef1228
   m_configObjects: {}
