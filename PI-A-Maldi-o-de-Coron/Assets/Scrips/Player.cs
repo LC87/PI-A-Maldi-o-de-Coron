@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
      // Menu de Pausa do game
 
     [SerializeField]
-    private bool isPaused = false;
+    private bool isPaused;
     public GameObject pausePanel;
     
     //public string cena;
@@ -65,9 +65,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     
     //menu de pausa
-        private bool isPaused;
         [Header("Paineis e Menu")]
-        public GameObject pausePanel;
         public string cena;
 
     void Update()
